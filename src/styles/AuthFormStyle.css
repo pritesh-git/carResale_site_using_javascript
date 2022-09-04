@@ -1,0 +1,33 @@
+/* model-content */
+.modal-content {
+  padding: 10px !important;
+  z-index: 10 !important;
+  border-radius: 1rem !important;
+}
+
+/*Full-width input fields */
+.modal-content input {
+  width: 100%;
+  padding: 15px;
+  margin: 5px;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.modal-content input:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.modal-content .btn[type='submit'] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}

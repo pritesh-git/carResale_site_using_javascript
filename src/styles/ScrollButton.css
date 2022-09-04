@@ -1,0 +1,17 @@
+.scrollBtn {
+  margin: auto;
+  width: fit-content;
+  font-size: 70px;
+  cursor: pointer;
+}
+
+.scrollBtn svg {
+  animation: mymove 1.5s infinite;
+  border-radius: 5rem;
+}
+
+@keyframes mymove {
+  50% {
+    box-shadow: 10px 20px 10px grey;
+  }
+}
