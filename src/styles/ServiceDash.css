@@ -1,4 +1,10 @@
 .row .icons {
   font-size: 50px;
   margin: 1rem 0;
+  color: grey;
+}
+.row > .icons:hover {
+  font-size: 60px;
+  margin: 0;
+  color: black;
 }

@@ -5,6 +5,7 @@ import Register from './Register'
 import Menubar from './Menubar'
 import history from '../utils/history'
 import Home from './home/Home'
+import Cars from './cars/Cars'
 
 const App = () => {
   const [loginModel, showLoginModel] = useState(false)
@@ -34,8 +35,9 @@ const App = () => {
           />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            {/* <Route path="/cars" component={Cars} /> */}
-            {/* <Route path="/service" component={Service}> /> */}
+            <Route path="/cars" element={<Cars />} />
+            // TODO: Make service page and route it to follow path.
+            {/* <Route path="/service" element={Service}> /> ** */}
           </Routes>
         </div>
       </Router>
