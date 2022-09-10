@@ -3,12 +3,19 @@ import '../styles/AuthFormStyle.css'
 import { Form, Modal, Button } from 'react-bootstrap'
 import { ValidateLogin } from '../validations/AuthValidations'
 import { login } from '../services/AuthService'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  toggleLogin,
+  toggleRegister,
+} from '../services/store/ToggleModelsReducer'
 
 const Login = props => {
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState({})
-  const { show, close, showRegister, setUsers } = props
+  const { setUsers } = props
+  const { showLoginModel } = useSelector(state => state.toggleModels)
+  const dispatch = useDispatch()
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -19,7 +26,7 @@ const Login = props => {
       const result = await login({ userName, password })
       if (result) {
         setUsers(result)
-        close()
+        dispatch(toggleLogin())
         alert('You Successfully Login.')
       } else {
         alert('Login Failed: Wrong Credentials')
@@ -30,7 +37,7 @@ const Login = props => {
   }
 
   return (
-    <Modal show={show} onHide={() => close()}>
+    <Modal show={showLoginModel} onHide={() => dispatch(toggleLogin())}>
       <Modal.Header closeButton>
         <Modal.Title>Login Form</Modal.Title>
       </Modal.Header>
@@ -68,7 +75,7 @@ const Login = props => {
       </Modal.Body>
       <Modal.Footer>
         Don't have account?
-        <Button variant="link" onClick={() => showRegister()}>
+        <Button variant="link" onClick={() => dispatch(toggleRegister())}>
           Register
         </Button>
       </Modal.Footer>

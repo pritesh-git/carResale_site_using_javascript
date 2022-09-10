@@ -3,13 +3,20 @@ import '../styles/AuthFormStyle.css'
 import { Form, Modal, Button } from 'react-bootstrap'
 import { ValidateRegister } from '../validations/AuthValidations'
 import { register } from '../services/AuthService'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  toggleLogin,
+  toggleRegister,
+} from '../services/store/ToggleModelsReducer'
 
 const Register = props => {
   const [email, setEmail] = useState('')
   const [userName, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState({})
-  const { show, close, showLogin, setUsers } = props
+  const { setUsers } = props
+  const { showRegisterModel } = useSelector(state => state.toggleModels)
+  const dispatch = useDispatch()
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -20,7 +27,7 @@ const Register = props => {
       const result = await register({ userName, email, password })
       if (result) {
         setUsers(result)
-        close()
+        dispatch(toggleRegister())
         alert('You Successfully Register.')
       } else {
         alert('Register Failed: Wrong Credentials')
@@ -31,7 +38,7 @@ const Register = props => {
     }
   }
   return (
-    <Modal show={show} onHide={() => close()}>
+    <Modal show={showRegisterModel} onHide={() => dispatch(toggleRegister())}>
       <Modal.Header closeButton>
         <Modal.Title>Register Form</Modal.Title>
       </Modal.Header>
@@ -81,7 +88,7 @@ const Register = props => {
       </Modal.Body>
       <Modal.Footer>
         Already have account?
-        <Button variant="link" onClick={() => showLogin()}>
+        <Button variant="link" onClick={() => dispatch(toggleLogin())}>
           Login
         </Button>
       </Modal.Footer>

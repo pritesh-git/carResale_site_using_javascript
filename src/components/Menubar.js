@@ -3,8 +3,16 @@ import { Container, Navbar, Nav, Button } from 'react-bootstrap'
 import '../styles/NavbarStyle.css'
 import { Link } from 'react-router-dom'
 import { FaCar } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import {
+  toggleLogin,
+  toggleRegister,
+} from '../services/store/ToggleModelsReducer'
+
 const Menubar = props => {
-  const { user, login, signup } = props
+  const { user } = props
+  const dispatch = useDispatch()
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
       <Container fluid>
@@ -29,14 +37,14 @@ const Menubar = props => {
           {!user ? (
             <Nav className="mx-5">
               <Button
-                onClick={() => login()}
+                onClick={() => dispatch(toggleLogin())}
                 variant="link"
                 className="m-0 p-0">
                 Login
               </Button>
               <span className="fw-light text-muted px-2 mx-auto">or</span>
               <Button
-                onClick={() => signup()}
+                onClick={() => dispatch(toggleRegister())}
                 variant="link"
                 className="m-0 p-0">
                 Signup
