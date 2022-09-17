@@ -6,6 +6,7 @@ import Menubar from './Menubar'
 import history from '../utils/history'
 import Home from './home/Home'
 import Cars from './cars/Cars'
+import Services from './carServices/Services'
 
 const App = () => {
   const [user, setUser] = useState()
@@ -22,7 +23,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/cars" element={<Cars />} />
-            {/* <Route path="/service" element={Service}> /> ** */}
+            <Route path="/service" element={<Services />} />
           </Routes>
         </div>
       </Router>

@@ -1,13 +1,13 @@
 import React from 'react'
 import FeaturedCar from '../cars/FeaturedCar'
 import ScrollToTop from './ScrollToTop'
-import Services from './Services'
+import ServiceCards from '../carServices/ServiceCards'
 import Slider from './Slider'
 const Home = () => {
   return (
     <>
       <Slider />
-      <Services />
+      <ServiceCards />
       <FeaturedCar />
       <ScrollToTop />
     </>

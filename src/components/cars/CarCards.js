@@ -92,12 +92,12 @@ const CarCards = props => {
                   </tr>
                   <tr>
                     <td colSpan={parseInt('2')}>
-                      {modalData.extras.map(val => {
+                      {modalData.extras.map((val, idx) => {
                         return (
-                          <>
+                          <div key={idx}>
                             <i>{val}</i>
                             <b>,</b>{' '}
-                          </>
+                          </div>
                         )
                       })}
                     </td>
