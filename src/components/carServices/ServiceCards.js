@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import '../../styles/ServiceDash.css'
 import { FaCar, FaBusinessTime, FaRoad } from 'react-icons/fa'
 import { CgPerformance } from 'react-icons/cg'
-const Services = () => {
+const ServiceCards = () => {
   return (
     <Container className="p-5 text-center">
       <Row>
@@ -68,4 +68,4 @@ const Services = () => {
     </Container>
   )
 }
-export default Services
+export default ServiceCards
